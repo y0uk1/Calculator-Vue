@@ -9,38 +9,17 @@
   <title>Calculator</title>
 </head>
 <body>
-<div class="d-flex justify-content-center align-items-center bg-white vh-100" id="app">
-  <div class="outer bg-black rounded-20 py-2 px-1">
-    <!-- 電卓ページ -->
-    <div id="main" class="col-12 bg-black-second rounded-20 h-100">
-      <div class="d-flex flex-wrap h-100">
-        <div class="col-12 h-25 d-flex flex-wrap bg-grey rounded-20 p-2">
-          <div class="d-flex col-12 justify-content-end">
-            <i class="fas fa-ellipsis-v text-white rem1p0 cursor-pointer" v-on:click="dispHistory()"></i>
-          </div>
-          <div class="d-flex col-12 justify-content-end">
-            <p class="text-white" v-bind:style="{'font-size': textSize(calStack.join('').length) + 'px'}">{{ calStack.join('') }}</p>
-          </div>
-          <div class="d-flex col-12 justify-content-end">
-            <p class="text-white" v-bind:style="{'font-size': textSize(summation.length) + 'px'}">{{ summation }}</p>
-          </div>
-        </div>
-
-        <div class="col-12 h-75 p-2">
-          <div class="d-flex justify-content-between">
-            <div class="d-flex col-10 justify-content-between">
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-light-black text-white option-button" v-bind:disabled="!(isEndByOperator||isStart||isEndByBlacketOpen)" v-on:click="calStack.push('π')">π</button>
-              </div>
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-light-black text-white option-button" v-bind:disabled="!(isEndByOperator||isStart||isEndByBlacketOpen)" v-on:click="calStack.push('e')">e</button>
-              </div>
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-light-black text-white option-button" v-bind:disabled="!(isEndByOperator||isStart||isEndByBlacketOpen)" v-on:click="calStack.push('√'); calStack.push('(')">√</button>
-              </div>
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-light-black text-white option-button" v-bind:disabled="isEndByOperator||isStart||isEndByBlacketOpen" v-on:click="calStack.push('!')">!</button>
-              </div>
+  <div class="d-flex justify-content-center align-items-center bg-white vh-100" id="app">
+    <div class="outer bg-black rounded-20 py-2 px-1">
+      <!-- 電卓ページ -->
+      <div id="main" class="col-12 bg-black-second rounded-20 h-100">
+        <div class="d-flex flex-wrap h-100">
+          <div class="col-12 h-25 d-flex flex-wrap bg-grey rounded-20 p-2">
+            <div class="d-flex col-12 justify-content-end">
+              <i class="fas fa-ellipsis-v text-white rem1p0 cursor-pointer" v-on:click="dispHistory()"></i>
+            </div>
+            <div class="d-flex col-12 justify-content-end">
+              <p class="text-white" v-bind:style="{'font-size': textSize(calStack.join('').length) + 'px'}">{{ calStack.join('') }}</p>
             </div>
             <div class="d-flex col-2">
               <div class="d-flex col-12 justify-content-center p-1">
