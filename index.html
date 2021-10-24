@@ -21,159 +21,138 @@
             <div class="d-flex col-12 justify-content-end">
               <p class="text-white" v-bind:style="{'font-size': textSize(calStack.join('').length) + 'px'}">{{ calStack.join('') }}</p>
             </div>
-            <div class="d-flex col-12 justify-content-end">
-              <p class="text-white" v-bind:style="{'font-size': textSize(summation.length) + 'px'}">{{ summation }}</p>
+            <div class="d-flex col-2">
+              <div class="d-flex col-12 justify-content-center p-1">
+                <a class="btn btn-link bg-light-black text-white angle-down" type="button" data-toggle="collapse" href="#collapse" role="button">
+                  <i class="fas fa-angle-down"></i>
+                </a>
+              </div>
             </div>
           </div>
 
-          <div class="col-12 h-75 p-2">
+          <div class="collapse" id="collapse">
             <div class="d-flex justify-content-between">
-              <div class="d-flex col-10 justify-content-between">
+              <div class="d-flex col-10">
                 <div class="d-flex col-3 justify-content-center p-1">
-                  <button class="bg-light-black text-white option-button" v-bind:disabled="!(isEndByOperator||isStart||isEndByBlacketOpen)" v-on:click="calStack.push('π')">π</button>
-                </div>
-                <div class="d-flex col-3 justify-content-center p-1">
-                  <button class="bg-light-black text-white option-button" v-bind:disabled="!(isEndByOperator||isStart||isEndByBlacketOpen)" v-on:click="calStack.push('e')">e</button>
+                  <button class="bg-light-black text-white option-button" v-bind:disabled="!(isEndByOperator||isStart||isEndByBlacketOpen)" v-on:click="calStack.push('sin'); calStack.push('(')">sin</button>
                 </div>
                 <div class="d-flex col-3 justify-content-center p-1">
-                  <button class="bg-light-black text-white option-button" v-bind:disabled="!(isEndByOperator||isStart||isEndByBlacketOpen)" v-on:click="calStack.push('√'); calStack.push('(')">√</button>
+                  <button class="bg-light-black text-white option-button" v-bind:disabled="!(isEndByOperator||isStart||isEndByBlacketOpen)" v-on:click="calStack.push('cos'); calStack.push('(')">cos</button>
                 </div>
                 <div class="d-flex col-3 justify-content-center p-1">
-                  <button class="bg-light-black text-white option-button" v-bind:disabled="isEndByOperator||isStart||isEndByBlacketOpen" v-on:click="calStack.push('!')">!</button>
+                  <button class="bg-light-black text-white option-button" v-bind:disabled="!(isEndByOperator||isStart||isEndByBlacketOpen)" v-on:click="calStack.push('tan'); calStack.push('(')">tan</button>
+                </div>
+                <div class="d-flex col-3 justify-content-center p-1">
+                  <button class="bg-light-black text-white option-button" v-bind:disabled="!(isEndByOperator||isStart||isEndByBlacketOpen)" v-on:click="calStack.push('ln'); calStack.push('(')">ln</button>
                 </div>
               </div>
-              <div class="d-flex col-2">
-                <div class="d-flex col-12 justify-content-center p-1">
-                  <a class="btn btn-link bg-light-black text-white angle-down" type="button" data-toggle="collapse" href="#collapse" role="button">
-                    <i class="fas fa-angle-down"></i>
-                  </a>
-                </div>
-              </div>
+              <div class="col-2"></div>
             </div>
+          </div>
 
-            <div class="collapse" id="collapse">
-              <div class="d-flex justify-content-between">
-                <div class="d-flex col-10">
-                  <div class="d-flex col-3 justify-content-center p-1">
-                    <button class="bg-light-black text-white option-button" v-bind:disabled="!(isEndByOperator||isStart||isEndByBlacketOpen)" v-on:click="calStack.push('sin'); calStack.push('(')">sin</button>
-                  </div>
-                  <div class="d-flex col-3 justify-content-center p-1">
-                    <button class="bg-light-black text-white option-button" v-bind:disabled="!(isEndByOperator||isStart||isEndByBlacketOpen)" v-on:click="calStack.push('cos'); calStack.push('(')">cos</button>
-                  </div>
-                  <div class="d-flex col-3 justify-content-center p-1">
-                    <button class="bg-light-black text-white option-button" v-bind:disabled="!(isEndByOperator||isStart||isEndByBlacketOpen)" v-on:click="calStack.push('tan'); calStack.push('(')">tan</button>
-                  </div>
-                  <div class="d-flex col-3 justify-content-center p-1">
-                    <button class="bg-light-black text-white option-button" v-bind:disabled="!(isEndByOperator||isStart||isEndByBlacketOpen)" v-on:click="calStack.push('ln'); calStack.push('(')">ln</button>
-                  </div>
-                </div>
-                <div class="col-2"></div>
-              </div>
+          <div class="d-flex justify-content-between">
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-green cal-button" v-on:click="calStack = []">AC</button>
             </div>
-
-            <div class="d-flex justify-content-between">
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-green cal-button" v-on:click="calStack = []">AC</button>
-              </div>
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-blue cal-button" v-on:click="addBlacket()">( )</button>
-              </div>
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-blue cal-button" v-bind:disabled="isEndByOperator||isStart||isEndByBlacketOpen" v-on:click="calStack.push('%')">%</button>
-              </div>
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-blue cal-button" v-bind:disabled="isEndByOperator||isStart||isEndByBlacketOpen" v-on:click="calStack.push('÷')">÷</button>
-              </div>
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-blue cal-button" v-on:click="addBlacket()">( )</button>
             </div>
-
-            <div class="d-flex justify-content-between">
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('7')">7</button>
-              </div>
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('8')">8</button>
-              </div>
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('9')">9</button>
-              </div>
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-blue cal-button" v-bind:disabled="isEndByOperator||isStart||isEndByBlacketOpen" v-on:click="calStack.push('×')">×</button>
-              </div>
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-blue cal-button" v-bind:disabled="isEndByOperator||isStart||isEndByBlacketOpen" v-on:click="calStack.push('%')">%</button>
             </div>
-
-            <div class="d-flex justify-content-between">
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('4')">4</button>
-              </div>
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('5')">5</button>
-              </div>
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('6')">6</button>
-              </div>
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-blue cal-button" v-bind:disabled="isEndByOperator" v-on:click="calStack.push('-')">-</button>
-              </div>
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-blue cal-button" v-bind:disabled="isEndByOperator||isStart||isEndByBlacketOpen" v-on:click="calStack.push('÷')">÷</button>
             </div>
+          </div>
 
-            <div class="d-flex justify-content-between">
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('1')">1</button>
-              </div>
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('2')">2</button>
-              </div>
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('3')">3</button>
-              </div>
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-blue cal-button" v-bind:disabled="isEndByOperator" v-on:click="calStack.push('+')">+</button>
-              </div>
+          <div class="d-flex justify-content-between">
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('7')">7</button>
             </div>
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('8')">8</button>
+            </div>
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('9')">9</button>
+            </div>
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-blue cal-button" v-bind:disabled="isEndByOperator||isStart||isEndByBlacketOpen" v-on:click="calStack.push('×')">×</button>
+            </div>
+          </div>
 
-            <div class="d-flex justify-content-between">
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('0')">0</button>
-              </div>
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('.')">.</button>
-              </div>
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-light-black cal-button text-white" v-bind:disabled="isStart" v-on:click="calStack.pop()"><i class="fas fa-backspace"></i></button>
-              </div>
-              <div class="d-flex col-3 justify-content-center p-1">
-                <button class="bg-second-white cal-button" v-bind:disabled="isEndByOperator||isStart" v-on:click="calSum">=</button>
-              </div>
+          <div class="d-flex justify-content-between">
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('4')">4</button>
+            </div>
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('5')">5</button>
+            </div>
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('6')">6</button>
+            </div>
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-blue cal-button" v-bind:disabled="isEndByOperator" v-on:click="calStack.push('-')">-</button>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('1')">1</button>
+            </div>
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('2')">2</button>
+            </div>
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('3')">3</button>
+            </div>
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-blue cal-button" v-bind:disabled="isEndByOperator" v-on:click="calStack.push('+')">+</button>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('0')">0</button>
+            </div>
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-light-black cal-button text-white" v-on:click="calStack.push('.')">.</button>
+            </div>
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-light-black cal-button text-white" v-bind:disabled="isStart" v-on:click="calStack.pop()"><i class="fas fa-backspace"></i></button>
+            </div>
+            <div class="d-flex col-3 justify-content-center p-1">
+              <button class="bg-second-white cal-button" v-bind:disabled="isEndByOperator||isStart" v-on:click="calSum">=</button>
             </div>
           </div>
         </div>
       </div>
-      <!-- 履歴ページ -->
-      <div id="history" class="col-12 bg-black-second rounded-20 text-white h-100 d-none">
-        <div class="d-flex flex-wrap h-100">
-          <div class="col-12 d-flex h-10 p-2">
-            <div class="col-1">
-              <i class="fas fa-arrow-left cursor-pointer" v-on:click="dispMain()"></i>
-            </div>
-            <div class="col-9 justify-content-center">
-              <p class="rem1p3">History</p>
-            </div>
-            <div class="col-1 justify-content-center">
-              <i class="far fa-trash-alt cursor-pointer" v-on:click="deleteHistory()"></i>
-            </div>
+    </div>
+    <!-- 履歴ページ -->
+    <div id="history" class="col-12 bg-black-second rounded-20 text-white h-100 d-none">
+      <div class="d-flex flex-wrap h-100">
+        <div class="col-12 d-flex h-10 p-2">
+          <div class="col-1">
+            <i class="fas fa-arrow-left cursor-pointer" v-on:click="dispMain()"></i>
           </div>
-          <div class="d-flex col-12 overflow-auto p-2 h-90">
-            <div class="d-flex flex-wrap col-12">
-              <div class="col-12 text-right mb-3" v-for="(calHistory,index) in calHistories">
-                <p class="rem1p5 cursor-pointer" v-on:click="useHistoryCal(index); dispMain()">{{ calHistory.equation.join('') }}</p>
-                <p class="rem1p5">{{ calHistory.summation }}</p>
-              </div>
+          <div class="col-9 justify-content-center">
+            <p class="rem1p3">History</p>
+          </div>
+          <div class="col-1 justify-content-center">
+            <i class="far fa-trash-alt cursor-pointer" v-on:click="deleteHistory()"></i>
+          </div>
+        </div>
+        <div class="d-flex col-12 overflow-auto p-2 h-90">
+          <div class="d-flex flex-wrap col-12">
+            <div class="col-12 text-right mb-3" v-for="(calHistory,index) in calHistories">
+              <p class="rem1p5 cursor-pointer" v-on:click="useHistoryCal(index); dispMain()">{{ calHistory.equation.join('') }}</p>
+              <p class="rem1p5">{{ calHistory.summation }}</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
