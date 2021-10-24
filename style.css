@@ -1,0 +1,136 @@
+.col-12{
+    padding-right:0;
+    padding-left:0;
+}
+
+button{
+    border: none;
+    outline: none!important;
+    background: transparent;
+}
+
+p{
+    margin: 0!important;
+}
+
+a{
+    text-decoration: none;
+}
+
+.bg-green{
+    background-color: rgb(154, 240, 197);
+}
+
+.bg-blue{
+    background-color: rgb(10, 146, 236);
+}
+
+.bg-blue:active {
+    background-color: rgb(79, 196, 250);
+}
+
+.bg-grey{
+    background-color: #2e2e2e
+}
+
+.bg-black{
+    background-color: #000000;
+}
+
+.bg-black-second{
+    background-color: #0f0f0f;
+}
+
+.bg-light-black{
+    background-color: rgba(39, 37, 37, 0.897);
+}
+
+.bg-light-black:active{
+    background-color: rgba(80, 80, 80, 0.986);
+}
+
+.bg-second-white{
+    background-color: rgb(245, 239, 239);
+}
+
+.bg-second-white:active {
+    background-color: rgb(255, 255, 255);
+}
+
+.angle-down{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 50%;
+}
+
+.option-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.5rem;
+    width: 2.3rem;
+    border-radius: 30% / 50%;
+}
+
+.cal-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 3.7rem;
+    border-radius: 40% / 50%;
+}
+
+.cal-button:active{
+    border-radius: 30%;
+}
+
+.outer{
+    height: 490px;
+    width: 270px;
+}
+
+.rounded-20{
+    border-radius: 20px;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.rem1p3{
+    font-size: 1.3rem;
+}
+
+
+.rem1p5{
+    font-size: 1.5rem;
+}
+
+.rem1p6{
+    font-size: 1.6rem;
+}
+
+.h-10{
+    height: 10%;
+}
+
+.h-90{
+    height: 90%;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, .1);
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  box-shadow:0 0 0 1px rgba(255, 255, 255, .3);
+}
