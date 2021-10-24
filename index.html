@@ -142,7 +142,7 @@
               <button class="bg-light-black cal-button text-white" v-bind:disabled="isStart" v-on:click="calStack.pop()"><i class="fas fa-backspace"></i></button>
             </div>
             <div class="d-flex col-3 justify-content-center p-1">
-              <button class="bg-second-white cal-button" v-bind:disabled="isEndByOperator||isStart||isEndByBlacketOpen" v-on:click="calSum">=</button>
+              <button class="bg-second-white cal-button" v-bind:disabled="isEndByOperator||isStart||isEndByBlacketOpen||!isCompleteBlacket" v-on:click="calSum">=</button>
             </div>
           </div>
         </div>

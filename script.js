@@ -67,6 +67,9 @@ var vm = new Vue({
             let size = this.calStack.length
             return this.calStack[size - 1] === ')'
         },
+        isCompleteBlacket: function() {
+            return this.countOpen === this.countClose
+        },
         countOpen: function() {
             let size = this.calStack.length
             let countOpen = 0
